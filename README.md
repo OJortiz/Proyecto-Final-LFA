@@ -53,4 +53,25 @@ El programa carga las cadenas de entrada desde el archivo `cadena.txt` y las pro
   Utilizando Graphviz, el grafo representa la secuencia de estados alcanzados por la máquina al procesar cada símbolo de la cadena de entrada.
 
 - **Tablas de Simbología y de Transición**
-  La tabla de transición ilustra las reglas que la máquina sigue al leer símbolos de la cinta en cada estado. Estas se pueden representar en Excel para una mayor claridad visual.
+  La tabla de transición ilustra las reglas que la máquina sigue al leer símbolos de la cinta en cada estado.
+  # Definición Formal de la Máquina de Turing (7-tupla)
+
+| Símbolo        | Descripción                                                   |
+|----------------|---------------------------------------------------------------|
+| Γ              | `{'a', 'b', '*', '#', ' '}` - Alfabeto de la cinta.           |
+| Σ ⊂ Γ          | `{'a', 'b', '*', '#'}` - Alfabeto de entrada.                 |
+| b ∈ Γ          | `' '` - Símbolo en blanco (no pertenece a Σ).                 |
+| Q              | `{'q0', 'q1', 'q2', 'q3', 'q4'}` - Conjunto de estados.       |
+| q0 ∈ Q         | `'q0'` - Estado inicial.                                      |
+| F ⊆ Q          | `{'q4'}` - Conjunto de estados finales.                       |
+| f              | Función de transición:                                        |
+|                | (`q0`, `'a'`) → (`q1`, `'a'`, `R`)                            |
+|                | (`q1`, `'b'`) → (`q2`, `'b'`, `R`)                            |
+|                | (`q2`, `'a'`) → (`q3`, `'a'`, `R`)                            |
+|                | (`q3`, `'*'`) → (`q4`, `'*'`, `R`)                            |
+|                | (`q3`, `'b'`) → (`q1`, `'b'`, `R`)                            |
+|                | (`q3`, `'a'`) → (`q3`, `'a'`, `R`)                            |
+|                | (`q4`, `'a'`) → (`q3`, `'a'`, `R`)                            |
+|                | (`q4`, `'b'`) → (`q1`, `'b'`, `R`)                            |
+|                | (`q4`, `'#'`) → (`q4`, `'#'`, `R`)                            |
+
